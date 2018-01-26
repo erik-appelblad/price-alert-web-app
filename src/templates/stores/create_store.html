@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="page-header">
+        <h1>Create store</h1>
+    </div>
+
+    <div class="form-size">
+        <form action="{{ url_for('stores.create_store') }}" method="post">
+            <div class="form-group">
+                <label for="name">Store name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Store Name">
+            </div>
+            <div class="form-group">
+                <label for="url_prefix">Store URL prefix</label>
+                <input type="text" id="url_prefix" name="url_prefix" class="form-control" placeholder="http://..." aria-describedby="URLPrefixHelp">
+                <span class="help-block" id="URLPrefixHelp">What is the common URL for all items in this store?</span>
+            </div>
+            <div class="form-group">
+                <label for="tag_name">Tag Name</label>
+                <input type="text" id="tag_name" name="tag_name" class="form-control" value="span" placeholder="span" aria-describedby="storeTagNameHelp">
+                <span class="help-block" id="storeTagNameHelp">What is the HTML tag of items that contain the price of items in this store?</span>
+            </div>
+            <div class="form-group">
+                <label for="query">Search Query</label>
+                <input type="text" id="query" name="query" class="form-control" placeholder='{"id": "price-now"}' value='{"id": "price-now"}' aria-describedby="queryHelpBlock">
+                <span class="help-block" id="queryHelpBlock">What is the JSON query to find the specific tag? Use double quotes.</span>
+            </div>
+            <button class="btn btn-success" type="submit">Create</button>
+        </form>
+    </div>
+{% endblock %}
